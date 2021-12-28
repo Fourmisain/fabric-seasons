@@ -188,3 +188,12 @@ task<TaskModrinthUpload>("modrinth") {
     addGameVersion(project["minecraft_version"])
     addLoader("fabric")
 }
+
+//maven publishing (required for JitPack)
+publishing {
+	publications {
+		create<MavenPublication>("mavenJava") {
+			from(components["java"])
+		}
+	}
+}
